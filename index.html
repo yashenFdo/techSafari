@@ -624,12 +624,12 @@
     </div>
 
     <div class="space-y-2 text-sm">
-      <a href="mailto:yashensavindu@gmail.com" class="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition" title="Email">
+      <a href="mailto:ruchikaupuldeniya14@gmail.com" class="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition" title="Email">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <rect x="2" y="4" width="20" height="16" rx="2"/>
           <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
         </svg>
-        yashensavindu@gmail.com
+        ruchikaupuldeniya14@gmail.com
       </a>
 
       <a href="tel:+94740142628" class="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition" title="Phone">
@@ -933,76 +933,75 @@ LinkedIn
 
 
 
-    <!-- Logic Script -->
-    <script>
-        // Data Groups
-        const wso2_list = ["2021ICTS001", "2021ICTS004"];
-        const ifs_list = ["2021ICTS002", "2021ICTS005"];
-        const zone_list = ["2021ICTS003", "2021ICTS006"];
+    <!-- Tech Safari 2026 Logic Script -->
+<script>
+    /**
+     * 1. DATA CONFIGURATION
+     * We keep data outside the function for performance.
+     */
+    const wso2_list = ["2021ICTS001", "2021ICTS004"];
+    const ifs_list = ["2021ICTS002", "2021ICTS005"];
+    const zone_list = ["2021ICTS003", "2021ICTS006"];
 
-        const links = {
-            "WSO2": "https://lu.ma/tech-safari-wso2",
-            "IFS": "https://lu.ma/tech-safari-ifs",
-            "ZONE24X7": "https://lu.ma/tech-safari-zone"
-        };
-
-        const mobileMenu = document.getElementById('mobileMenu');
-        const navToggle = document.getElementById('navToggle');
-
-        if (navToggle && mobileMenu) {
-            navToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+    const orgMeta = {
+        "WSO2": {
+            logo: "./images/wso2.jpg",
+            venue: "WSO2 Headquarters, Colombo",
+            date: "June 17, 2026",
+            time: "09:00 AM — 02:00 PM",
+            link: "https://lu.ma/tech-safari-wso2"
+        },
+        "IFS": {
+            logo: "./images/ifs.jpg",
+            venue: "IFS Innovation Lab, Colombo",
+            date: "July 09, 2026",
+            time: "09:00 AM — 02:00 PM",
+            link: "https://lu.ma/tech-safari-ifs"
+        },
+        "ZONE24X7": {
+            logo: "./images/zone24x7.png",
+            venue: "ZONE24x7 Studio, Colombo",
+            date: "To be announced",
+            time: "09:00 AM — 02:00 PM",
+            link: "https://lu.ma/tech-safari-zone"
         }
+    };
 
-        function checkRegistration() {
-            const id = document.getElementById('regInput').value.trim().toUpperCase();
-            const res = document.getElementById('resultArea');
-            const btn = document.getElementById('lumaBtn');
-            let org = "";
+    /**
+     * 2. REGISTRATION CHECKER
+     * Handles formats like 2021/ICTS/001, 2021-ICTS-001, and lowercase letters.
+     */
+    function checkRegistration() {
+        const inputField = document.getElementById('regInput');
+        const res = document.getElementById('resultArea');
+        const btn = document.getElementById('lumaBtn');
+        
+        // REGEX: Strip all non-alphanumeric characters (/, -, spaces) and convert to Uppercase
+        // Example: "2021/icts-002" -> "2021ICTS002"
+        const cleanID = inputField.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+        
+        let orgKey = "";
 
-            if(wso2_list.includes(id)) org = "WSO2";
-            else if(ifs_list.includes(id)) org = "AIFS";
-            else if(zone_list.includes(id)) org = "ZONE24X7";
+        // Check against groups
+        if (wso2_list.includes(cleanID)) orgKey = "WSO2";
+        else if (ifs_list.includes(cleanID)) orgKey = "IFS";
+        else if (zone_list.includes(cleanID)) orgKey = "ZONE24X7";
 
-            const orgMeta = {
-            "WSO2": {
-                label: "WSO2",
-                logo: "./images/wso2.jpg",
-                venue: "WSO2 Headquarters, Colombo",
-                date: "June 12, 2026",
-                time: "09:00 AM — 02:00 PM"
-            },
-            "IFS": {
-                label: "IFS Innovation Lab, Colombo",
-                logo: "./images/ifs.jpg",
-                venue: "IFS Innovation Lab, Colombo",
-                date: "June 13, 2026",
-                time: "09:00 AM — 02:00 PM"
-            },
-            "ZONE24X7": {
-                label: "ZONE24x7 Studio",
-                logo: "./images/zone24x7.png",
-                venue: "ZONE24x7 Studio, Colombo",
-                date: "June 14, 2026",
-                time: "09:00 AM — 02:00 PM"
-            }
-        };
-
-        if(org) {
-            const meta = orgMeta[org];
+        if (orgKey) {
+            const meta = orgMeta[orgKey];
             res.innerHTML = `
-                <div class="glass p-8 rounded-[2rem] border border-white/10 shadow-2xl">
+                <div class="glass p-8 rounded-[2rem] border border-white/10 shadow-2xl animate-in fade-in zoom-in duration-300">
                     <div class="flex flex-col gap-8 lg:flex-row lg:items-center">
-                        <img src="${meta.logo}" alt="${org} logo" class="h-28 w-28 rounded-3xl object-contain bg-white/5 p-4">
+                        <img src="${meta.logo}" alt="${orgKey} logo" class="h-28 w-28 rounded-3xl object-contain bg-white/5 p-4">
                         <div class="flex-1">
                             <p class="text-purple-400 text-xs font-bold uppercase tracking-[0.3em] mb-3">Registration confirmed</p>
-                            <h3 class="text-3xl md:text-4xl font-black mb-4 text-white">${id}</h3>
-                            <p class="text-gray-300 max-w-2xl leading-relaxed mb-6">Your registration number is verified for Tech Safari 2026. Please keep this card for your reference and review the event details below.</p>
+                            <h3 class="text-3xl md:text-4xl font-black mb-4 text-white">${cleanID}</h3>
+                            <p class="text-gray-300 max-w-2xl leading-relaxed mb-6">Your registration is verified. Please review your assigned session details below.</p>
+                            
                             <div class="grid gap-4 sm:grid-cols-2 mb-6">
                                 <div class="rounded-3xl bg-white/5 p-5 border border-white/10">
                                     <p class="text-gray-400 uppercase text-[11px] tracking-[0.3em] mb-2">Organization</p>
-                                    <p class="text-white font-semibold">${org}</p>
+                                    <p class="text-white font-semibold">${orgKey}</p>
                                 </div>
                                 <div class="rounded-3xl bg-white/5 p-5 border border-white/10">
                                     <p class="text-gray-400 uppercase text-[11px] tracking-[0.3em] mb-2">Date</p>
@@ -1014,71 +1013,74 @@ LinkedIn
                                 </div>
                                 <div class="rounded-3xl bg-white/5 p-5 border border-white/10">
                                     <p class="text-gray-400 uppercase text-[11px] tracking-[0.3em] mb-2">Location</p>
-                                    <p class="text-white font-semibold">${meta.venue}</p>
+                                    <p class="text-white font-semibold text-sm leading-tight">${meta.venue}</p>
                                 </div>
                             </div>
-                            <p class="text-gray-300 leading-relaxed">
-                                Official event details will be sent to your inbox. The email includes the WhatsApp group link — please join as soon as possible to receive updates and final arrival instructions.
-                            </p>
                         </div>
-                    </div>
+                    </div> 
                 </div>`;
-            btn.href = links[org];
+            btn.href = meta.link;
             btn.classList.remove('hidden');
         } else {
-            res.innerHTML = `<div class="glass p-6 rounded-3xl border border-red-500/15 bg-red-500/5 text-red-200"><p class="font-semibold">Registration number not found.</p><p class="mt-2 text-sm text-red-100">Please verify your entry and try again. Example format: 2021ICTS001.</p></div>`;
+            res.innerHTML = `
+                <div class="glass p-6 rounded-3xl border border-red-500/20 bg-red-500/5 text-red-200">
+                    <p class="font-bold">ID Not Found</p>
+                    <p class="mt-1 text-sm text-red-100/70">We couldn't find a record for "${inputField.value}". Please use the format 2021/ICTS/000.</p>
+                </div>`;
             btn.classList.add('hidden');
         }
     }
 
+    /**
+     * 3. COUNTDOWN TIMER SYSTEM
+     */
     function updateCountdown(elementId, targetDate) {
-        const countdownElement = document.getElementById(elementId);
-        if (!countdownElement) return;
+        const el = document.getElementById(elementId);
+        if (!el) return;
 
-        function calculate() {
-            const now = new Date().getTime();
-            const distance = new Date(targetDate).getTime() - now;
-
+        const timer = setInterval(() => {
+            const distance = new Date(targetDate).getTime() - new Date().getTime();
+            
             if (distance < 0) {
-                countdownElement.innerHTML = `<p class="text-sm text-gray-400">Event is underway or has passed</p>`;
+                el.innerHTML = `<p class="text-sm text-gray-500 font-medium">Event is live or completed</p>`;
+                clearInterval(timer);
                 return;
             }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const secs = Math.floor((distance % (1000 * 60)) / 1000);
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
 
             const pad = (n) => String(n).padStart(2, '0');
-
-            countdownElement.innerHTML = `<div class="grid grid-cols-4 gap-2 text-center">
-                <div>
-                    <div class="text-2xl md:text-3xl font-black text-purple-400">${pad(days)}</div>
-                    <p class="text-xs text-gray-500 mt-1">Days</p>
-                </div>
-                <div>
-                    <div class="text-2xl md:text-3xl font-black text-purple-400">${pad(hours)}</div>
-                    <p class="text-xs text-gray-500 mt-1">Hours</p>
-                </div>
-                <div>
-                    <div class="text-2xl md:text-3xl font-black text-purple-400">${pad(mins)}</div>
-                    <p class="text-xs text-gray-500 mt-1">Mins</p>
-                </div>
-                <div>
-                    <div class="text-2xl md:text-3xl font-black text-purple-400">${pad(secs)}</div>
-                    <p class="text-xs text-gray-500 mt-1">Secs</p>
-                </div>
-            </div>`;
-        }
-
-        calculate();
-        setInterval(calculate, 1000);
+            el.innerHTML = `
+                <div class="grid grid-cols-4 gap-2 text-center">
+                    <div><div class="text-2xl font-black text-purple-400">${pad(d)}</div><p class="text-[10px] uppercase text-gray-500">Days</p></div>
+                    <div><div class="text-2xl font-black text-purple-400">${pad(h)}</div><p class="text-[10px] uppercase text-gray-500">Hrs</p></div>
+                    <div><div class="text-2xl font-black text-purple-400">${pad(m)}</div><p class="text-[10px] uppercase text-gray-500">Min</p></div>
+                    <div><div class="text-2xl font-black text-purple-400">${pad(s)}</div><p class="text-[10px] uppercase text-gray-500">Sec</p></div>
+                </div>`;
+        }, 1000);
     }
 
+    /**
+     * 4. INITIALIZATION
+     */
+    // Start Countdowns
     updateCountdown('countdown-wso2', 'June 17, 2026 09:00:00');
     updateCountdown('countdown-ifs', 'July 9, 2026 09:00:00');
 
-    lucide.createIcons();
-    </script>
+    // Mobile Menu
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (navToggle && mobileMenu) {
+        navToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+
+    // Initialize Icons
+    window.addEventListener('load', () => {
+        if (window.lucide) lucide.createIcons();
+    });
+</script>
 </body>
 </html>

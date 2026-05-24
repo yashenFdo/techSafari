@@ -1,8 +1,13 @@
-// Example Mapping Data
+// 1. Define Luma URLs in variables
+const lumaWSO2 = "https://luma.com/450ykgmq";
+const lumaIFS = "https://lu.ma/aifs-visit";
+const luma24x7 = "https://lu.ma/24x7-visit";
+
+// 2. Map variables inside the student data
 const studentData = {
-    "2021ICTS001": { name: "Yashen Fernando", company: "WSO2", luma: "https://luma.com/450ykgmq" },
-    "2021ICTS002": { name: "Jane Doe", company: "AIFS", luma: "https://lu.ma/aifs-visit" },
-    "2021ICTS003": { name: "John Smith", company: "24x7", luma: "https://lu.ma/24x7-visit" }
+    "2021ICTS001": { name: "Yashen Fernando", company: "WSO2", luma: lumaWSO2 },
+    "2021ICTS002": { name: "Jane Doe", company: "IFS", luma: lumaIFS },
+    "2021ICTS003": { name: "John Smith", company: "24x7", luma: luma24x7 }
 };
 
 function checkRegistration() {
@@ -17,7 +22,7 @@ function checkRegistration() {
                 <p class="text-gray-300">Welcome, <span class="text-white font-bold">${student.name}</span></p>
                 <p class="text-sm">Assigned Industry: <span class="text-purple-400 font-bold">${student.company}</span></p>
             </div>`;
-        registerBtn.href = student.luma;
+        registerBtn.href = student.luma; // Grabs the URL from the variable
         registerBtn.classList.remove('hidden');
     } else {
         resultDiv.innerHTML = `<p class="text-red-400 text-sm">Registration number not found.</p>`;
