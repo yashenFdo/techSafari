@@ -1,6 +1,6 @@
 // Example Mapping Data
 const studentData = {
-    "2021ICTS001": { name: "Yashen Fernando", company: "WSO2", luma: "https://lu.ma/wso2-visit" },
+    "2021ICTS001": { name: "Yashen Fernando", company: "WSO2", luma: "https://luma.com/450ykgmq" },
     "2021ICTS002": { name: "Jane Doe", company: "AIFS", luma: "https://lu.ma/aifs-visit" },
     "2021ICTS003": { name: "John Smith", company: "24x7", luma: "https://lu.ma/24x7-visit" }
 };
