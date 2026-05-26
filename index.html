@@ -442,71 +442,58 @@
 
 <!-- Zone24x7 Visit -->
 <div class="glass p-6 md:p-8 rounded-3xl border-orange-500/20 hover:border-orange-500/40 transition-all duration-300">
+  <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+    <div class="md:col-span-1 flex justify-center md:justify-start">
+      <img src="./images/zone24x7.png" alt="Zone24x7 Logo" class="h-32 w-32 object-contain rounded-2xl bg-white/5 p-4">
+    </div>
 
-<div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+    <div class="md:col-span-2">
+      <h3 class="text-2xl font-black mb-4 text-white">ZONE24x7 Inc.</h3>
+      <div class="space-y-3">
+        <div class="flex items-start gap-3">
+          <i data-lucide="map-pin" class="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5"></i>
+          <div>
+            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Location</p>
+            <p class="text-gray-200 font-semibold">460 Nawala Road, Koswatte, Colombo</p>
+          </div>
+        </div>
 
-<div class="md:col-span-1 flex justify-center md:justify-start">
+        <div class="flex items-start gap-3">
+          <i data-lucide="calendar" class="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5"></i>
+          <div>
+            <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Date & Time</p>
+            <p class="text-gray-200 font-semibold">July 01, 2026 • 9:00 AM – 1:30 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<img src="./images/zone24x7.png" alt="Zone24x7 Logo" class="h-32 w-32 object-contain rounded-2xl bg-white/5 p-4">
-
-</div>
-
-<div class="md:col-span-2">
-
-<h3 class="text-2xl font-black mb-4 text-white">ZONE24x7 Inc.</h3>
-
-<div class="space-y-3">
-
-<div class="flex items-start gap-3">
-
-<i data-lucide="map-pin" class="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5"></i>
-
-<div>
-
-<p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Location</p>
-
-<p class="text-gray-200 font-semibold"> 460 Nawala Road, Koswatte, Colombo</p>
-
-</div>
-
-</div>
-
-<div class="flex items-start gap-3">
-
-<i data-lucide="calendar" class="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5"></i>
-
-<div>
-
-<p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Date & Time</p>
-
-<p class="text-orange-300 font-semibold italic">To be confirmed soon</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="md:col-span-2">
-
-<div class="glass p-6 rounded-2xl border border-orange-500/20 text-center bg-orange-500/5">
-
-<p class="text-sm text-orange-300 font-semibold uppercase tracking-wider">Awaiting Confirmation</p>
-
-<p class="text-xs text-gray-400 mt-3">Date and time details will be updated soon. Please check back regularly or contact the organizing committee.</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+    <div class="md:col-span-2">
+      <div class="glass p-6 rounded-2xl border border-orange-500/20 text-center">
+        <p class="text-xs text-gray-400 uppercase tracking-wider mb-3">Countdown</p>
+        <div id="countdown-zone" class="space-y-2">
+          <div class="grid grid-cols-4 gap-2 text-center">
+            <div>
+              <div class="text-2xl md:text-3xl font-black text-orange-400">00</div>
+              <p class="text-xs text-gray-500 mt-1">Days</p>
+            </div>
+            <div>
+              <div class="text-2xl md:text-3xl font-black text-orange-400">00</div>
+              <p class="text-xs text-gray-500 mt-1">Hours</p>
+            </div>
+            <div>
+              <div class="text-2xl md:text-3xl font-black text-orange-400">00</div>
+              <p class="text-xs text-gray-500 mt-1">Mins</p>
+            </div>
+            <div>
+              <div class="text-2xl md:text-3xl font-black text-orange-400">00</div>
+              <p class="text-xs text-gray-500 mt-1">Secs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 </section>
@@ -1067,8 +1054,9 @@ LinkedIn
      * 4. INITIALIZATION
      */
     // Start Countdowns
-    updateCountdown('countdown-wso2', 'June 17, 2026 09:00:00');
-    updateCountdown('countdown-ifs', 'July 9, 2026 09:00:00');
+  updateCountdown('countdown-wso2', 'June 17, 2026 09:00:00');
+  updateCountdown('countdown-zone', 'July 1, 2026 09:00:00'); // Added Zone24x7
+  updateCountdown('countdown-ifs', 'July 9, 2026 09:00:00');
 
     // Mobile Menu
     const navToggle = document.getElementById('navToggle');
