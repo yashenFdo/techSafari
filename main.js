@@ -1,14 +1,4 @@
-// 1. Define Luma URLs in variables
-const lumaWSO2 = "https://luma.com/450ykgmq";
-const lumaIFS = "https://lu.ma/aifs-visit";
-const luma24x7 = "https://lu.ma/24x7-visit";
 
-// 2. Map variables inside the student data
-const studentData = {
-    "2021ICTS001": { name: "Yashen Fernando", company: "WSO2", luma: lumaWSO2 },
-    "2021ICTS002": { name: "Jane Doe", company: "IFS", luma: lumaIFS },
-    "2021ICTS003": { name: "John Smith", company: "24x7", luma: luma24x7 }
-};
 
 function checkRegistration() {
     const regNum = document.getElementById('regInput').value.trim().toUpperCase();
