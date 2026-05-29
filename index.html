@@ -767,6 +767,27 @@ LinkedIn
                 <a id="lumaBtn" href="#" target="_blank" class="hidden inline-flex items-center gap-3 px-12 py-5 accent-gradient rounded-2xl font-black text-lg hover:shadow-2xl transition-all shadow-purple-500/30 scale-100 hover:scale-105">
                     Register Now <i data-lucide="arrow-right"></i>
                 </a>
+
+                <div class="mt-16 pt-10 border-t border-white/10 text-left">
+                    <p class="text-purple-400 uppercase tracking-[0.3em] text-xs font-bold mb-4">Academic Staff Registration</p>
+                    <h3 class="text-2xl md:text-3xl font-black mb-3">Register as an Academic Staff Member</h3>
+                    <p class="text-gray-400 mb-6 max-w-2xl">Please use the Academic Staff Member Ticket for registration. Select your partner organization and click the button below.</p>
+                    <div class="grid gap-4 lg:grid-cols-[1fr_auto] items-end">
+                        <label class="block w-full">
+                            <span class="text-gray-400 text-sm mb-2 block">Select partner organization</span>
+                            <select id="staffOrgSelect" onchange="updateStaffLink()" class="w-full bg-white/10 border border-white/10 rounded-2xl px-5 py-4 text-black focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition">
+                                <option value="" class="text-gray-400">Choose company</option>
+                                <option value="WSO2" class="text-black">WSO2</option>
+                                <option value="IFS" class="text-black">IFS</option>
+                                <option value="ZONE24X7" class="text-black">ZONE24x7</option>
+                            </select>
+                        </label>
+
+                        <a id="staffRegisterBtn" href="#" target="_blank" class="hidden inline-flex items-center justify-center px-8 py-4 bg-purple-500 text-white rounded-2xl font-bold hover:bg-purple-400 transition">
+                            Register Now
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1016,6 +1037,22 @@ LinkedIn
                 </div>`;
             btn.classList.add('hidden');
         }
+    }
+
+    function updateStaffLink() {
+        const select = document.getElementById('staffOrgSelect');
+        const button = document.getElementById('staffRegisterBtn');
+        const orgKey = select.value;
+
+        if (!orgKey || !orgMeta[orgKey]) {
+            button.classList.add('hidden');
+            button.href = '#';
+            return;
+        }
+
+        const meta = orgMeta[orgKey];
+        button.href = meta.link;
+        button.classList.remove('hidden');
     }
 
     /**
