@@ -755,7 +755,7 @@ LinkedIn
                 <p class="text-gray-400 mb-10 max-w-lg mx-auto">Validate your credentials to reveal your assigned industry partner for the 2026 series.</p>
                 
                 <div class="flex flex-col md:flex-row justify-center items-center gap-3 mb-8">
-                    <input type="text" id="regInput" placeholder="Enter Registration No (e.g. 2021ICTS001)" 
+                    <input type="text" id="regInput" placeholder="Enter Registration No (e.g. 2021ICTS03)" 
                            class="bg-white/5 border border-white/10 px-6 py-4 rounded-2xl w-full md:w-96 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all text-center md:text-left">
                     <button onclick="checkRegistration()" class="w-full md:w-auto px-8 py-4 bg-white text-black font-black rounded-2xl hover:bg-purple-500 hover:text-white transition-all duration-300">
                         Check Status
@@ -945,157 +945,158 @@ LinkedIn
 <script>
     /**
      * 1. DATA CONFIGURATION
-     * We keep data outside the function for performance.
+     * Kept outside the functions for performance.
      */
     const ifs_list = [
-            "2021ICTS150",
-            "2021ICTS56",
-            "2021ICTS113",
-            "2021ICTS21",
-            "2020ICTS117",
-            "2021ICTS89",
-            "2021ICTS76",
-            "2021ICTS43",
-            "2021ICTS98",
-            "2021ICTS135",
-            "2021ICTS29",
-            "2020ICTS85",
-            "2021ICTS129",
-            "2021ICTS120",
-            "2021ICTS03",
-            "2021ICTS93",
-            "2021ICTS152",
-            "2021ICTS60",
-            "2021ICTS16",
-            "2021ICTS81",
-            "2021ICTS109",
-            "2020ICTS110",
-            "2021ICTS40",
-            "2021ICTS132",
-            "2020ICTS63",
-            "2021ICTS35",
-            "2021ICTS105",
-            "2021ICTS157",
-            "2021ICTS142",
-            "2021ICTS85",
-            "2021ICTS11",
-            "2021ICTS123",
-            "2020ICTS139",
-            "2021ICTS53",
-            "2021ICTS117",
-            "2021ICTS31",
-            "2021ICTS147",
-            "2021ICTS97",
-            "2021ICTS20",
-            "2021ICTS102",
-            "2021ICTS140",
-            "2021ICTS49",
-            "2020ICTS45",
-            "2021ICTS78",
-            "2021ICTS125",
-            "2021ICTS26",
-            "2021ICTS154",
-            "2020ICTS97"
-        ];
+        "2021ICTS150",
+        "2021ICTS56",
+        "2021ICTS113",
+        "2021ICTS21",
+        "2020ICTS117",
+        "2021ICTS89",
+        "2021ICTS76",
+        "2021ICTS43",
+        "2021ICTS98",
+        "2021ICTS135",
+        "2021ICTS29",
+        "2020ICTS85",
+        "2021ICTS129",
+        "2021ICTS120",
+        "2021ICTS03",
+        "2021ICTS93",
+        "2021ICTS152",
+        "2021ICTS60",
+        "2021ICTS16",
+        "2021ICTS81",
+        "2021ICTS109",
+        "2020ICTS110",
+        "2021ICTS40",
+        "2021ICTS132",
+        "2020ICTS63",
+        "2021ICTS35",
+        "2021ICTS105",
+        "2021ICTS157",
+        "2021ICTS142",
+        "2021ICTS85",
+        "2021ICTS11",
+        "2021ICTS123",
+        "2020ICTS139",
+        "2021ICTS53",
+        "2021ICTS117",
+        "2021ICTS31",
+        "2021ICTS147",
+        "2021ICTS97",
+        "2021ICTS20",
+        "2021ICTS102",
+        "2021ICTS140",
+        "2021ICTS49",
+        "2020ICTS45",
+        "2021ICTS78",
+        "2021ICTS125",
+        "2021ICTS26",
+        "2021ICTS154",
+        "2020ICTS97"
+    ];
 
     const zone_list = [
-            "2019ICTS179",
-            "2021ICTS36",
-            "2021ICTS99",
-            "2021ICTS65",
-            "2021ICTS14",
-            "2021ICTS111",
-            "2021ICTS90",
-            "2021ICTS73",
-            "2021ICTS45",
-            "2021ICTS103",
-            "2021ICTS22",
-            "2020ICTS73",
-            "2021ICTS75",
-            "2021ICTS121",
-            "2021ICTS116",
-            "2021ICTS94",
-            "2021ICTS144",
-            "2021ICTS61",
-            "2021ICTS27",
-            "2020ICTS122",
-            "2021ICTS112",
-            "2021ICTS133",
-            "2021ICTS118",
-            "2021ICTS70",
-            "2021ICTS12",
-            "2020ICTS59",
-            "2021ICTS106",
-            "2021ICTS41",
-            "2020ICTS123",
-            "2021ICTS86",
-            "2021ICTS124",
-            "2021ICTS32",
-            "2021ICTS64",
-            "2021ICTS148",
-            "2021ICTS54",
-            "2020ICTS95",
-            "2021ICTS79",
-            "2021ICTS141",
-            "2021ICTS01",
-            "2021ICTS100",
-            "2021ICTS62",
-            "2021ICTS28",
-            "2021ICTS126",
-            "2021ICTS115",
-            "2020ICTS103",
-            "2021ICTS136",
-            "2021ICTS57",
-            "2020ICTS116",
-            "2021ICTS50"
-          ];
+        "2019ICTS179",
+        "2021ICTS36",
+        "2021ICTS99",
+        "2021ICTS65",
+        "2021ICTS14",
+        "2021ICTS111",
+        "2021ICTS90",
+        "2021ICTS73",
+        "2021ICTS45",
+        "2021ICTS103",
+        "2021ICTS22",
+        "2020ICTS73",
+        "2021ICTS75",
+        "2021ICTS121",
+        "2021ICTS116",
+        "2021ICTS94",
+        "2021ICTS144",
+        "2021ICTS61",
+        "2021ICTS27",
+        "2020ICTS122",
+        "2021ICTS112",
+        "2021ICTS133",
+        "2021ICTS118",
+        "2021ICTS70",
+        "2021ICTS12",
+        "2020ICTS59",
+        "2021ICTS106",
+        "2021ICTS41",
+        "2020ICTS123",
+        "2021ICTS86",
+        "2021ICTS124",
+        "2021ICTS32",
+        "2021ICTS64",
+        "2021ICTS148",
+        "2021ICTS54",
+        "2020ICTS95",
+        "2021ICTS79",
+        "2021ICTS141",
+        "2021ICTS01",
+        "2021ICTS100",
+        "2021ICTS62",
+        "2021ICTS28",
+        "2021ICTS126",
+        "2021ICTS115",
+        "2020ICTS103",
+        "2021ICTS136",
+        "2021ICTS57",
+        "2020ICTS116",
+        "2021ICTS50"
+    ];
+
     const wso2_list = [
-            "2021ICTS151",
-            "2021ICTS67",
-            "2021ICTS149",
-            "2021ICTS23",
-            "2020ICTS112",
-            "2021ICTS91",
-            "2021ICTS131",
-            "2021ICTS47",
-            "2021ICTS101",
-            "2021ICTS145",
-            "2021ICTS06",
-            "2021ICTS83",
-            "2021ICTS128",
-            "2021ICTS37",
-            "2020ICTS82",
-            "2021ICTS127",
-            "2021ICTS122",
-            "2021ICTS15",
-            "2021ICTS155",
-            "2021ICTS63",
-            "2021ICTS107",
-            "2020ICTS152",
-            "2021ICTS42",
-            "2021ICTS134",
-            "2021ICTS59",
-            "2020ICTS66",
-            "2021ICTS146",
-            "2021ICTS33",
-            "2021ICTS110",
-            "2020ICTS34",
-            "2021ICTS71",
-            "2021ICTS88",
-            "2021ICTS139",
-            "2021ICTS51",
-            "2021ICTS104",
-            "2021ICTS143",
-            "2021ICTS92",
-            "2020ICTS125",
-            "2021ICTS72",
-            "2021ICTS119",
-            "2021ICTS30",
-            "2021ICTS55",
-            "2021ICTS04",
-            "2019ICTS170",
-            "2021ICTS19"
-        ];
+        "2021ICTS151",
+        "2021ICTS67",
+        "2021ICTS149",
+        "2021ICTS23",
+        "2020ICTS112",
+        "2021ICTS91",
+        "2021ICTS131",
+        "2021ICTS47",
+        "2021ICTS101",
+        "2021ICTS145",
+        "2021ICTS06",
+        "2021ICTS83",
+        "2021ICTS128",
+        "2021ICTS37",
+        "2020ICTS82",
+        "2021ICTS127",
+        "2021ICTS122",
+        "2021ICTS15",
+        "2021ICTS155",
+        "2021ICTS63",
+        "2021ICTS107",
+        "2020ICTS152",
+        "2021ICTS42",
+        "2021ICTS134",
+        "2021ICTS59",
+        "2020ICTS66",
+        "2021ICTS146",
+        "2021ICTS33",
+        "2021ICTS110",
+        "2020ICTS34",
+        "2021ICTS71",
+        "2021ICTS88",
+        "2021ICTS139",
+        "2021ICTS51",
+        "2021ICTS104",
+        "2021ICTS143",
+        "2021ICTS92",
+        "2020ICTS125",
+        "2021ICTS72",
+        "2021ICTS119",
+        "2021ICTS30",
+        "2021ICTS55",
+        "2021ICTS04",
+        "2019ICTS170",
+        "2021ICTS19"
+    ];
 
     const orgMeta = {
         "WSO2": {
@@ -1123,23 +1124,40 @@ LinkedIn
 
     /**
      * 2. REGISTRATION CHECKER
-     * Handles formats like 2021/ICTS/001, 2021-ICTS-001, and lowercase letters.
+     * Now matches reliably even if there are hidden trailing spaces inside data arrays.
+     */
+    
+    /**
+     * 2. REGISTRATION CHECKER (Smart Padding Fix)
+     * Automatically handles 2021/ICTS/006 vs 2021/ICTS/06 mismatch variations.
      */
     function checkRegistration() {
         const inputField = document.getElementById('regInput');
         const res = document.getElementById('resultArea');
         const btn = document.getElementById('lumaBtn');
         
-        // REGEX: Strip all non-alphanumeric characters (/, -, spaces) and convert to Uppercase
-        // Example: "2021/icts-002" -> "2021ICTS002"
-        const cleanID = inputField.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+        if (!inputField || !res) return;
+
+        // 1. Clean up user input: Strip out characters like /, -, and spaces, then transform to uppercase
+        let cleanID = inputField.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+        
+        // 2. Smart Normalization: If it ends with multiple zeros before a number (e.g., 2021ICTS006),
+        // let's convert it to match the dataset format (e.g., 2021ICTS06) dynamically.
+        const match = cleanID.match(/^(\d{4}ICTS)0+(\d+)$/);
+        if (match) {
+            const prefix = match[1]; // e.g., "2021ICTS"
+            const num = parseInt(match[2], 10); // e.g., 6
+            // Your source array uses 2 digits for numbers under 100 (e.g., "06", "56")
+            const paddedNum = String(num).padStart(2, '0'); 
+            cleanID = prefix + paddedNum;
+        }
         
         let orgKey = "";
 
-        // Check against groups
-        if (wso2_list.includes(cleanID)) orgKey = "WSO2";
-        else if (ifs_list.includes(cleanID)) orgKey = "IFS";
-        else if (zone_list.includes(cleanID)) orgKey = "ZONE24X7";
+        // Core Comparison
+        if (wso2_list.some(id => id.trim() === cleanID)) orgKey = "WSO2";
+        else if (ifs_list.some(id => id.trim() === cleanID)) orgKey = "IFS";
+        else if (zone_list.some(id => id.trim() === cleanID)) orgKey = "ZONE24X7";
 
         if (orgKey) {
             const meta = orgMeta[orgKey];
@@ -1173,21 +1191,25 @@ LinkedIn
                         </div>
                     </div> 
                 </div>`;
-            btn.href = meta.link;
-            btn.classList.remove('hidden');
+            if (btn) {
+                btn.href = meta.link;
+                btn.classList.remove('hidden');
+            }
         } else {
             res.innerHTML = `
                 <div class="glass p-6 rounded-3xl border border-red-500/20 bg-red-500/5 text-red-200">
                     <p class="font-bold">ID Not Found</p>
-                    <p class="mt-1 text-sm text-red-100/70">We couldn't find a record for "${inputField.value}". Please use the format 2021/ICTS/000.</p>
+                    <p class="mt-1 text-sm text-red-100/70">We couldn't find a record for "${inputField.value}". Please try checking your index number format.</p>
                 </div>`;
-            btn.classList.add('hidden');
+            if (btn) btn.classList.add('hidden');
         }
     }
-
-    function updateStaffLink() {
+    
+     function updateStaffLink() {
         const select = document.getElementById('staffOrgSelect');
         const button = document.getElementById('staffRegisterBtn');
+        if (!select || !button) return;
+        
         const orgKey = select.value;
 
         if (!orgKey || !orgMeta[orgKey]) {
@@ -1236,21 +1258,23 @@ LinkedIn
     /**
      * 4. INITIALIZATION
      */
-    // Start Countdowns
-  updateCountdown('countdown-wso2', 'June 17, 2026 09:00:00');
-  updateCountdown('countdown-zone', 'July 1, 2026 09:00:00'); // Added Zone24x7
-  updateCountdown('countdown-ifs', 'July 9, 2026 09:00:00');
+    document.addEventListener('DOMContentLoaded', () => {
+        // Start Countdowns
+        updateCountdown('countdown-wso2', 'June 17, 2026 09:00:00');
+        updateCountdown('countdown-zone', 'July 1, 2026 09:00:00'); 
+        updateCountdown('countdown-ifs', 'July 9, 2026 09:00:00');
 
-    // Mobile Menu
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (navToggle && mobileMenu) {
-        navToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    }
+        // Mobile Menu
+        const navToggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (navToggle && mobileMenu) {
+            navToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        }
 
-    // Initialize Icons
-    window.addEventListener('load', () => {
-        if (window.lucide) lucide.createIcons();
+        // Initialize Icons if Lucide is loaded
+        if (window.lucide) {
+            lucide.createIcons();
+        }
     });
 </script>
 </body>
